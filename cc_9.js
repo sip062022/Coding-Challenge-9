@@ -43,3 +43,30 @@ const mgr1 = new Manager ("John Smith", 201, "IT", 8000, 5); // adds manager det
 
 console.log(mgr1.getDetails()); // Expected output: "Manager: John Smith, ID: 201, Department: IT, Salary, $8000, Team Size, 5"
 console.log(`Manager Bonus: $${mgr1.calculateBonus()}`); // Expected output: $9600
+
+// Task 3: Creating a Company Class //
+
+class Company { // creates company class
+    constructor (name) { // creates constructor for name
+        this.name = name; // classifies name as this.name
+        this.employees = []; // creates array for employees
+    }
+
+    addEmployee(employee) { // adds methods addEmployee
+        this.employees.push(employee); // adds new employee to the array
+    }
+
+    listEmployees() { // adds method listEmployees
+        this.employees.forEach(employee => {  // for each employee
+            console.log(employee.getDetails()); // list details using getDetails method
+        });
+    }
+}
+
+const company = new Company("TechCorp"); // adds new company
+company.addEmployee(emp1); // adds emp1 to the company
+company.addEmployee(mgr1); // adds mgr1 to the company
+company.listEmployees(); // lists all employees
+// Expected output:
+// "Employee: Alice Johnson, ID: 101, Department: Sales, Salary: $5000"
+// "Manager: John Smith, ID: 201, Department: IT, Salary: $8000, Team Size: 5"
