@@ -70,6 +70,21 @@ class Company { // creates company class
             return total + employee.calculateAnnualSalary(); // Summation logic
         }, 0);
     }
+
+    promoteToManager(employee, teamSize) { // Task 5, implementing promotions
+        const promotedManager = new Manager( // Defines properties of new instance
+            employee.name,
+            employee.id,
+            employee.department,
+            employee.salary,
+            teamSize
+        );
+
+        const index = this.employees.indexOf(employee);  // Replaces employee information with manager information
+        if (index !== -1) {
+            this.employees[index] = promotedManager;
+        }
+    }
 }
 
 const company = new Company("TechCorp"); // adds new company
@@ -84,3 +99,8 @@ company.listEmployees(); // lists all employees
 // Task 4: Implementing a Payroll System (See in task 3 for the code) //
 
 console.log(`Total Payroll: $${company.calculateTotalPayroll()}`); // Expected output: "Total Payroll: 172800"
+
+// Task 5: Implementing Promotions (See task 3 for the code) //
+
+company.promoteToManager(emp1, 3);  // Gives employee 1 a 3 person team
+company.listEmployees(); // Expected output: "Manager: Alice Johnson, ID: 101, Department: Sales, Salary: $5000, Team Size: 3"
