@@ -35,10 +35,13 @@ class Manager extends Employee { // creates class called manager that inherits f
     }
 
     calculateBonus() { // creates bonus method
-        return this.calculateAnnualSalary() * .10; // gives formula for calculating annual salary based off previous employee salary
+        return super.calculateAnnualSalary() * .10; // gives formula for calculating annual salary based off previous employee salary
+    }
+
+    calculateAnnualSalary() {
+        return super.calculateAnnualSalary() + this.calculateBonus(); // adds annual salary method to managers as well
     }
 }
-
 const mgr1 = new Manager ("John Smith", 201, "IT", 8000, 5); // adds manager details
 
 console.log(mgr1.getDetails()); // Expected output: "Manager: John Smith, ID: 201, Department: IT, Salary, $8000, Team Size, 5"
@@ -61,6 +64,12 @@ class Company { // creates company class
             console.log(employee.getDetails()); // list details using getDetails method
         });
     }
+
+    calculateTotalPayroll() { // Task 4, adding payroll method
+        return this.employees.reduce((total, employee) => {  // Add all employee salaries 
+            return total + employee.calculateAnnualSalary(); // Summation logic
+        }, 0);
+    }
 }
 
 const company = new Company("TechCorp"); // adds new company
@@ -70,3 +79,8 @@ company.listEmployees(); // lists all employees
 // Expected output:
 // "Employee: Alice Johnson, ID: 101, Department: Sales, Salary: $5000"
 // "Manager: John Smith, ID: 201, Department: IT, Salary: $8000, Team Size: 5"
+
+
+// Task 4: Implementing a Payroll System (See in task 3 for the code) //
+
+console.log(`Total Payroll: $${company.calculateTotalPayroll()}`); // Expected output: "Total Payroll: 172800"
