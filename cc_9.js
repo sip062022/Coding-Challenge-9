@@ -74,8 +74,8 @@ class Company { // creates company class
     promoteToManager(employee, teamSize) { // Task 5, implementing promotions
         const promotedManager = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize); // Defines properties of new instance
         const index = this.employees.indexOf(employee);  // Replaces employee information with manager information
-        if (index !== -1) {
-            this.employees[index] = promotedManager;
+        if (index !== -1) { // If name is found
+            this.employees[index] = promotedManager; // update employee to be manager
         }
     }
 }
