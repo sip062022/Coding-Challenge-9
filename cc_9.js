@@ -38,7 +38,7 @@ class Manager extends Employee { // creates class called manager that inherits f
         return super.calculateAnnualSalary() * .10; // gives formula for calculating annual salary based off previous employee salary
     }
 
-    calculateAnnualSalary() {
+    calculateAnnualSalary() { // Task 4 
         return super.calculateAnnualSalary() + this.calculateBonus(); // adds annual salary method to managers as well
     }
 }
