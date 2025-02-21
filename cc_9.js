@@ -9,7 +9,7 @@ class Employee { // Creates class called employee
     }
 
     getDetails() {  // uses a method to format a string of employee details
-        return `Name: ${this.name}, ID: ${this.id}, Department: ${this.department}, Salary: $${this.salary}`; // string to be displayed
+        return `Employee: ${this.name}, ID: ${this.id}, Department: ${this.department}, Salary: $${this.salary}`; // string to be displayed
     }
 
     calculateAnnualSalary() { // uses a method to calculate the salary
@@ -72,14 +72,7 @@ class Company { // creates company class
     }
 
     promoteToManager(employee, teamSize) { // Task 5, implementing promotions
-        const promotedManager = new Manager( // Defines properties of new instance
-            employee.name,
-            employee.id,
-            employee.department,
-            employee.salary,
-            teamSize
-        );
-
+        const promotedManager = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize); // Defines properties of new instance
         const index = this.employees.indexOf(employee);  // Replaces employee information with manager information
         if (index !== -1) {
             this.employees[index] = promotedManager;
